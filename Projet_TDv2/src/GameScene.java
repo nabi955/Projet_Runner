@@ -8,6 +8,8 @@ public class GameScene extends Scene {
     private StaticThing backgroundLeft;
     private StaticThing backgroundRight;
 
+
+
     public GameScene(Parent root, double width, double height, Camera camera) {
         super(root, width, height);
         this.camera = camera;

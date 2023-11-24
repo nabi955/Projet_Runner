@@ -7,8 +7,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
+import javafx.scene.image.Image;
+import java.io.FileInputStream;
 
 public class Main extends Application {
 
@@ -16,9 +18,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         // Load sprite sheet
-        Image spriteSheet = new Image("file:../img/heros.png");
+        FileInputStream test = new FileInputStream("C:\\Users\\Utilisateur\\Downloads\\test.PNG");
+        Image spriteSheet = new Image (test);
 
-        // Create ImageView
         ImageView sprite = new ImageView(spriteSheet);
         sprite.setViewport(new Rectangle2D(20, 0, 65, 100));
         sprite.setX(200);
@@ -35,11 +37,17 @@ public class Main extends Application {
 
         // Set up the stage
         primaryStage.setScene(gameScene);
-        primaryStage.setTitle("Image Display");
+        primaryStage.setTitle("Game Scene");
         primaryStage.show();
 
         // Print Camera coordinates
         System.out.println("Initial Camera Coordinates: " + camera);
+
+        // Test the code with different camera positions
+        camera.setX(100);
+        camera.setY(50);
+
+        System.out.println("Updated Camera Coordinates: " + camera.getX() + ", " + camera.getY());
     }
 
 
